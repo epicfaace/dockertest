@@ -12,7 +12,8 @@ jobs:
         fail-fast: false
     steps:
       - uses: actions/checkout@v2
-      - run: echo resolv.conf
+    #   - run: echo resolv.conf
+      - run: curl google.com
       - run: ping -c 1 google.com
 
       # https://l-lin.github.io/post/2018/2018-09-03-docker_ubuntu_18_dns/
