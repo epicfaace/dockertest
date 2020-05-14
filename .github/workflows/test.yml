@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
     #   https://stackoverflow.com/questions/20430371/my-docker-container-has-no-internet
       - run: cat /etc/resolv.conf
-
+      - run: /run/systemd/resolve/resolv.conf
     #   https://github.com/actions/virtual-environments/issues/798
       - run: sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
       - run: cat /etc/resolve.conf
