@@ -15,6 +15,7 @@ jobs:
     #   - run: echo resolv.conf
       - run: curl google.com
       - run: ping -c 1 google.com
+        if: always()
 
       # https://l-lin.github.io/post/2018/2018-09-03-docker_ubuntu_18_dns/
     #   - run: |
