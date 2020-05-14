@@ -11,10 +11,15 @@ jobs:
         fail-fast: false
     steps:
       - uses: actions/checkout@v2
-    #   https://stackoverflow.com/questions/20430371/my-docker-container-has-no-internet
+      - run: echo resolv.conf
+      - run: |
+          echo "{ \"dns\": [\"8.8.8.8\"] }" > /etc/docker/daemon.json
+          
+      #   https://stackoverflow.com/questions/20430371/my-docker-container-has-no-internet
       - run: cat /etc/resolv.conf
       - run: sudo cat /run/systemd/resolve/resolv.conf
     #   https://github.com/actions/virtual-environments/issues/798
+
       - run: sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
       - run: cat /etc/resolve.conf
       - run: docker run alpine ping -c 1 google.com
