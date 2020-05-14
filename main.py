@@ -17,5 +17,6 @@ def run_ping(network):
     print(f"done. output is <{output.decode()}>")
     print("")
 
+run_ping("None")
 run_ping("external_network")
 run_ping("internal_network")
