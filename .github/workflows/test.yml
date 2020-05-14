@@ -11,7 +11,10 @@ jobs:
         fail-fast: false
     steps:
       - uses: actions/checkout@v2
+    #   https://stackoverflow.com/questions/20430371/my-docker-container-has-no-internet
       - run: cat /etc/resolv.conf
+      - run: ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+      - run: cat /etc/resolve.conf
       - run: docker run alpine ping -c 1 google.com
     #   - name: Set up Python 3.6
     #     uses: actions/setup-python@v1
