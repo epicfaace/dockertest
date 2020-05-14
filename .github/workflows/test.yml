@@ -14,8 +14,8 @@ jobs:
       - run: echo resolv.conf
 
       # https://l-lin.github.io/post/2018/2018-09-03-docker_ubuntu_18_dns/
-      - run: |
-          sudo echo "{ \"dns\": [\"8.8.8.8\"] }" > /etc/docker/daemon.json
+    #   - run: |
+    #       sudo echo "{ \"dns\": [\"8.8.8.8\"] }" > /etc/docker/daemon.json
 
       #   https://stackoverflow.com/questions/20430371/my-docker-container-has-no-internet
       - run: cat /etc/resolv.conf
@@ -24,7 +24,7 @@ jobs:
 
       - run: sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
       - run: cat /etc/resolve.conf
-      - run: docker run alpine ping -c 1 google.com
+      - run: docker run --dns 8.8.8.8 alpine ping -c 1 google.com
     #   - name: Set up Python 3.6
     #     uses: actions/setup-python@v1
     #     with:
