@@ -13,7 +13,7 @@ client.networks.create("external_network", internal=False)
 
 def run_ping(network):
     print(f"starting docker container with network {network}...")
-    output = client.containers.run("alpine", "ping -c 1 google.com", network=network)
+    output = client.containers.run("alpine", "echo hello", network=network)
     print(f"done. output is <{output.decode()}>")
     print("")
 
