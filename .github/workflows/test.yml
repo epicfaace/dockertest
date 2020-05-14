@@ -12,9 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo resolv.conf
+
+      # https://l-lin.github.io/post/2018/2018-09-03-docker_ubuntu_18_dns/
       - run: |
-          echo "{ \"dns\": [\"8.8.8.8\"] }" > /etc/docker/daemon.json
-          
+          sudo echo "{ \"dns\": [\"8.8.8.8\"] }" > /etc/docker/daemon.json
+
       #   https://stackoverflow.com/questions/20430371/my-docker-container-has-no-internet
       - run: cat /etc/resolv.conf
       - run: sudo cat /run/systemd/resolve/resolv.conf
