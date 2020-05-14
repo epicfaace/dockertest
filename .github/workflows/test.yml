@@ -7,10 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.6
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.6
-      - run: docker pull alpine
-      - run: pip install -r requirements.txt
-      - run: python main.py
+      - run: docker run alpine ping -c 1 google.com
+    #   - name: Set up Python 3.6
+    #     uses: actions/setup-python@v1
+    #     with:
+    #       python-version: 3.6
+    #   - run: docker pull alpine
+    #   - run: pip install -r requirements.txt
+    #   - run: python main.py
