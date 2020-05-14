@@ -15,7 +15,7 @@ jobs:
       - run: cat /etc/resolv.conf
 
     #   https://github.com/actions/virtual-environments/issues/798
-      - run: ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+      - run: sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
       - run: cat /etc/resolve.conf
       - run: docker run alpine ping -c 1 google.com
     #   - name: Set up Python 3.6
