@@ -8,31 +8,10 @@ jobs:
     strategy:
         matrix:
             os: [ubuntu-latest]
+            test: [a run, b c d]
         #   os: [ubuntu-16.04, ubuntu-18.04, macos-10.15, windows-2019, windows-2016]
         fail-fast: false
     steps:
       - uses: actions/checkout@v2
-    #   - run: echo resolv.conf
-      - run: curl google.com
-      - run: ping -c 1 google.com
-        if: always()
-
-      # https://l-lin.github.io/post/2018/2018-09-03-docker_ubuntu_18_dns/
-    #   - run: |
-    #       sudo echo "{ \"dns\": [\"8.8.8.8\"] }" > /etc/docker/daemon.json
-
-      #   https://stackoverflow.com/questions/20430371/my-docker-container-has-no-internet
-      - run: cat /etc/resolv.conf
-      - run: sudo cat /run/systemd/resolve/resolv.conf
-    #   https://github.com/actions/virtual-environments/issues/798
-
-      - run: sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
-    #   - run: cat /etc/resolve.conf
-      - run: docker run --dns 8.8.8.8 alpine ping -c 1 google.com
-    #   - name: Set up Python 3.6
-    #     uses: actions/setup-python@v1
-    #     with:
-    #       python-version: 3.6
-    #   - run: docker pull alpine
-    #   - run: pip install -r requirements.txt
-    #   - run: python main.py
+      - run: echo "GOT RUN"
+        if: contains(matrix.test, "run")
