@@ -8,10 +8,10 @@ jobs:
     strategy:
         matrix:
             os: [ubuntu-latest]
-            test: [a run, b c d]
+            test: [unittest gen-rest-docs gen-cli-docs gen-readthedocs basic, upload1, upload2 upload3 upload4 download refs binary, rm make worksheet_search worksheet_tags, freeze detach perm, search search_time, run, read kill write mimic, status batch resources, copy groups netcat netcurl, anonymous competition unicode, workers rest1 memoize, worksheets]
         #   os: [ubuntu-16.04, ubuntu-18.04, macos-10.15, windows-2019, windows-2016]
         fail-fast: false
     steps:
       - uses: actions/checkout@v2
       - run: echo "GOT RUN"
-        if: ${{ contains(matrix.test, 'run') }}
+        if: $${{ contains(matrix.test, 'run') }}
