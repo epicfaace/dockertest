@@ -11,7 +11,7 @@ jobs:
             test: [a b,c d]
             x: [true, false]
             exclude:
-              - test: c d
+              - test: a b
                 x: true
         fail-fast: false
     steps:
