@@ -16,5 +16,4 @@ jobs:
         fail-fast: false
     steps:
       - uses: actions/checkout@v2
-      - run: echo "GOT RUN"
-        if: ${{ !matrix.test }}
+      - run: echo $GITHUB_SHA
