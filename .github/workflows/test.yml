@@ -8,7 +8,9 @@ jobs:
     strategy:
         matrix:
             os: [ubuntu-latest]
-            test: [true, false]
+            test: [a b, c d]
+            exclude:
+              - test: c d
         fail-fast: false
     steps:
       - uses: actions/checkout@v2
