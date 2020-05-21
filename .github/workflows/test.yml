@@ -17,3 +17,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: docker run ubuntu /bin/bash -c "cat /sys/fs/cgroup/memory/memory.limit_in_bytes"
+      - run: df -h
+      - run: docker run ubuntu /bin/bash -c "df -h"
