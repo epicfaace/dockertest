@@ -8,14 +8,13 @@ jobs:
     strategy:
         matrix:
             os: [ubuntu-latest]
-            test: [a b,c d]
-            x: [true, false]
-            exclude:
-              - test: a b
-                x: true
+            test: [a, b, c, d]
         fail-fast: false
     steps:
       - uses: actions/checkout@v2
-      - run: ls $GECKOWEBDRIVER
-      - run: ls $CHROMEWEBDRIVER
-      - run: which geckodriver
+      - run: |
+          git clone https://github.com/codalab/codalab-worksheets.git
+          cd codalab-worksheets
+          python3 codalab_service.py pull --version gha master
+          python3 codalab_service.py start --services default monitor --version gha
+          python3 test_runner.py --version gha frontend
