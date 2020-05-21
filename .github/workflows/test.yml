@@ -16,5 +16,6 @@ jobs:
         fail-fast: false
     steps:
       - uses: actions/checkout@v2
-      - run: echo $GECKOWEBDRIVER
-      - run: echo $CHROMEWEBDRIVER
+      - run: ls $GECKOWEBDRIVER
+      - run: ls $CHROMEWEBDRIVER
+      - run: which geckodriver
