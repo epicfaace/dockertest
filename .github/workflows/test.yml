@@ -11,7 +11,7 @@ jobs:
           echo $VERSION
           echo $VERSION2
           echo $VERSION3
-      - env:
+        env:
           VERSION: ${{ github.ref }}
           VERSION2: ${{ github.head_ref }} 
           VERSION3: ${{ github.base_ref }}
