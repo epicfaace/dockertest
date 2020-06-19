@@ -16,4 +16,4 @@ jobs:
           VERSION: ${{ github.ref }}
           VERSION2: ${{ github.head_ref }} 
           VERSION3: ${{ github.base_ref }}
-          VERSION4: ${{ github.head_ref || "master" }}
+          VERSION4: ${{ github.head_ref || 'master' }}
