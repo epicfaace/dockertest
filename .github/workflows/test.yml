@@ -4,17 +4,14 @@ on: push
 jobs:
   test:
     name: Test
-    runs-on: ${{ matrix.os }}
-    strategy:
-        matrix:
-            os: [ubuntu-latest]
-            test: [a, b, c, d]
-        fail-fast: false
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: |
-          git clone https://github.com/codalab/codalab-worksheets.git
-          cd codalab-worksheets
-          python3 codalab_service.py pull --version gha
-          python3 codalab_service.py start --services default monitor --version gha
-          python3 test_runner.py --version gha frontend
+          echo $VERSION
+          echo $VERSION2
+          echo $VERSION3
+      - env:
+          VERSION: ${{ github.ref }}
+          VERSION2: ${{ github.head_ref }} 
+          VERSION3: ${{ github.base_ref }}
