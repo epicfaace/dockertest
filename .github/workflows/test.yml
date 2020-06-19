@@ -11,8 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo $VERSION && echo $VERSION2 && echo $VERSION3
+      - run: echo $VERSION && echo $VERSION2 && echo $VERSION3 && echo $VERSION4
         env:
           VERSION: ${{ github.ref }}
           VERSION2: ${{ github.head_ref }} 
           VERSION3: ${{ github.base_ref }}
+          VERSION4: ${{ github.head_ref }} || "master"
