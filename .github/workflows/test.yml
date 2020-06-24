@@ -15,6 +15,9 @@ jobs:
         uses: actions/setup-python@v2
       - run: pip install --upgrade selenium==3.141.0
       - run: python -c "import selenium; print(selenium.__version__)"
+      - run: geckodriver --version && chromedriver --version
+      - run: sudo ./scripts/test-setup.sh && export PATH=$PATH:$PWD/geckodriver
+      - run: geckodriver --version && chromedriver --version
       - run: echo $VERSION && echo $VERSION2 && echo $VERSION3 && echo $VERSION4
         env:
           VERSION: ${{ github.ref }}
