@@ -13,7 +13,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Setup Python
         uses: actions/setup-python@v2
-      - run: python3 -c "import selenium; print(selenium.__version__)"
+      - run: pip install --upgrade selenium==3.141.0
+      - run: python -c "import selenium; print(selenium.__version__)"
       - run: echo $VERSION && echo $VERSION2 && echo $VERSION3 && echo $VERSION4
         env:
           VERSION: ${{ github.ref }}
