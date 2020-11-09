@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: pip install pipenv && pipenv install pytest
+      - run: pip install pipenv && pipenv install boto3
         env:
           VERSION: ${{ github.ref }}
           VERSION2: ${{ github.head_ref }} 
           VERSION3: ${{ github.base_ref }}
           VERSION4: ${{ github.head_ref || 'master' }}
-      - run: pipenv run python -m pytest
+      - run: pipenv run python -c "import boto3"
