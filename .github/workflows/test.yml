@@ -22,3 +22,8 @@ jobs:
           VERSION3: ${{ github.base_ref }}
           VERSION4: ${{ github.head_ref || 'master' }}
       - run: pipenv run python -c "import os; print(os.getenv('VERSION'))"
+        env:
+          VERSION: ${{ github.ref }}
+      - run: python -c "import os; print(os.getenv('VERSION'))"
+        env:
+          VERSION: ${{ github.ref }}
