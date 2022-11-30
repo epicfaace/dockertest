@@ -11,19 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.6
-        uses: actions/setup-python@v1
+      - uses: actions/setup-go@v3
         with:
-          python-version: 3.6
-      - run: pip install pipenv && pipenv install boto3
-        env:
-          VERSION: ${{ github.ref }}
-          VERSION2: ${{ github.head_ref }} 
-          VERSION3: ${{ github.base_ref }}
-          VERSION4: ${{ github.head_ref || 'master' }}
-      - run: pipenv run python -c "import os; print(os.getenv('VERSION'))"
-        env:
-          VERSION: ${{ github.ref }}
-      - run: python -c "import os; print(os.getenv('VERSION'))"
-        env:
-          VERSION: ${{ github.ref }}
+          go-version: '1.18.1'
+      - run: |
+          go install sigs.k8s.io/kind@v0.12.0
+          go install github.com/cloudflare/cfssl/cmd/...@latest
+          kind create cluster --wait 30s
+          kubectl config use-context kind-codalab
+          kubectl get pods --output=jsonpath={.items..metadata.name}
+          for c in $(kubectl get pods --output=jsonpath={.items..metadata.name}); do echo $c; done
