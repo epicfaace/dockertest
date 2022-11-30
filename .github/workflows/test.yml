@@ -18,6 +18,6 @@ jobs:
           go install sigs.k8s.io/kind@v0.12.0
           go install github.com/cloudflare/cfssl/cmd/...@latest
           kind create cluster --wait 30s
-          kubectl config use-context kind-codalab
+          kubectl run nginx --image=nginx
           kubectl get pods --output=jsonpath={.items..metadata.name}
           for c in $(kubectl get pods --output=jsonpath={.items..metadata.name}); do echo $c; done
