@@ -10,5 +10,6 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
+      - shell: bash
       - run: |
         [ "0" != "0" ] && exit 1
