@@ -8,7 +8,7 @@ on:
 jobs:
   test:
     name: Test
-    runs-on: macos-latest-large
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.6
