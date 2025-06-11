@@ -21,3 +21,11 @@ def run_ping(network):
 run_ping(None)
 run_ping("external_network")
 run_ping("internal_network")
+
+
+Add commentMore actions
+
+uName = getRequestString("username");
+uPass = getRequestString("userpassword");
+
+sql = 'SELECT * FROM Users WHERE Name ="' + uName + '" AND Pass ="' + uPass + '"'
