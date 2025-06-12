@@ -6,3 +6,11 @@ uName = getRequestString("username");
 uPass = getRequestString("userpassword");
 
 sql = 'SELECT * FROM Users WHERE Name ="' + uName + '" AND Pass ="' + uPass + '"'
+
+
+More actions
+
+uName = getRequestString("username");
+uPass = getRequestString("userpassword");
+
+sql = 'SELECT * FROM Users WHERE Name ="' + uName + '" AND Pass ="' + uPass + '"'
