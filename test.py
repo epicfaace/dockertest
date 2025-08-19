@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, abort
 from flask_login import LoginManager, login_required, current_user
 from models import Invoice  # SQLAlchemy model
-
+ 
 app = Flask(__name__)
 login_manager = LoginManager(app)
 
